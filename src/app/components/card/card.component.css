@@ -1,0 +1,67 @@
+.card {
+    background-color: transparent;
+    overflow: hidden;
+    box-shadow: 2px 5px 5px 3px #161616;
+    border-radius: 15px;
+}
+
+.card:hover{
+    box-shadow: 2px 8px 5px 3px #131313;
+}
+
+.card-body {
+    background-color: whitesmoke;
+    border-radius: 0 0 12px 12px;
+}
+
+.img-container {
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.image-blur {
+    border-radius: 12px 12px 0 0;
+    transition: all 0.25s ease;
+}
+
+.image-blur:hover {
+    filter:  brightness(0.2) blur(4px);
+}
+
+.btn-artist {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 45%;
+    margin: auto;
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    opacity: 0;
+}
+
+.img-container:hover .btn-artist {
+    color: rgb(117, 143, 214, 0.6);
+    opacity: 0.9;
+}
+
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 5;
+    }
+
+    .fa-3x {
+        font-size: 4em;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .fa-3x {
+        font-size: 3.5em;
+    }
+}

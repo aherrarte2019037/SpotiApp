@@ -1,0 +1,36 @@
+.alert-message {
+    border-radius: 8px;
+    margin: 20px 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 1px;
+    padding-top: 5px;
+    border-top: 5px solid #eee;
+}
+
+.alert-message h5 {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom:-4px;
+}
+
+.alert-message p {
+    margin-bottom: 6px!important;
+    font-family: Calibri, sans-serif;
+    font-size: 15px;
+    color: rgb(77, 76, 76);
+}
+
+.alert-message code {
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.alert-message-danger {
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+
+.alert-message-danger h5 {
+    color: #d9534f;
+}

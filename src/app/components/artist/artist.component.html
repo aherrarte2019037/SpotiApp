@@ -1,0 +1,46 @@
+<app-loading *ngIf="!loaded"></app-loading>
+
+<div *ngIf="loaded" class="row mt-4">
+
+    <div class="col-9 col-sm-8 col-md-3 col-lg-3 col-xl-2 order-2 order-md-1 mt-2 mt-md-0 mr-auto ml-auto animate__animated animate__fadeInLeft animate__fast">
+        <div class="img-container" [ngClass]="{ 'no-img-container': !hasImage }">
+            <img class="img-circle" [src]="artist.images | imageVerify" alt="Artist Image">  
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-5 order-3 order-md-2 text-center text-md-left">
+        <h3 style="margin-left: -3px" class="text-light display-4 mb-0">{{ artist.name }}</h3>
+        <span style="margin-right: 4px;" class="badge badge-pill badge-info" *ngFor="let genre of artist.genres | slice:0:3">{{ genre | titlecase }}</span>
+        <br>
+        <div class="mt-1"></div>
+        <span class="text-muted">{{ artist.followers.total }} Seguidores</span>
+        <span><a class="go-spotify" [href]="artist.external_urls.spotify" target="_blanck">Ver en Spotify <i class="fab fa-spotify fa-sm"></i></a></span>
+    </div>
+
+    <div class="col-md-3 col-lg-4 col-xl-5 p-0 text-md-right order-1 order-md-3">
+        <a style="cursor: pointer" (click)="goBack()" class="text-muted btn animate__animated btn-back"><i class="fas fa-chevron-left fa-sm"></i> Regresar</a>
+    </div>
+
+    
+    <div class="table-container table-responsive col-11 col-lg-10 col-xl-8 order-4 mr-auto ml-auto animate__animated animate__fadeIn animate__slow">
+        <table class="table-hover">
+            <thead>
+                <tr style="font-size: 25px">
+                    <th><i class="fas fa-camera"></i></th>
+                    <th><i class="fas fa-record-vinyl"></i></th>
+                    <th><i class="fas fa-music"></i></th>
+                    <th><i style="font-size: 20px;" class="fas fa-play"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let track of topTracks">
+                    <td><img style="border-radius: 50%; border: 2px solid rgb(87, 86, 86);" width="64" [src]="track.album.images | imageVerify" alt="Album Image"></td>
+                    <td>{{ track.album.name | titlecase }}</td>
+                    <td class="font-weight-normal">{{ track.name | titlecase}}</td>
+                    <td><iframe [src]="urlWidget + track.uri | safeDom" style="border-radius: 8px" width="300" height="78" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
